@@ -39,6 +39,8 @@ For example, for Glassfish v4.1, that is based on OSGI, deploying the Ceylon dis
 - just unzip the 2 zip archives mentionned earlier into :
 
   `../glassfish4/glassfish/domains/domain1/autodeploy/bundles`
+  
+  48 bundles should have been added in the `bundles` directory.
 
 - start the glassfish server :
 
