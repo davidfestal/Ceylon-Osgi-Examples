@@ -36,7 +36,7 @@ For example, for Glassfish v4.1, that is based on OSGI, deploying the Ceylon dis
 
 - let's assume we start with a fresh installation of Glassfish v4.1
 
-- just unzip the 2 zip archives mentionned earlier into :
+- just unzip the 2 zip archives mentioned earlier into :
 
   `../glassfish4/glassfish/domains/domain1/autodeploy/bundles`
   
