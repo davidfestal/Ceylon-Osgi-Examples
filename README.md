@@ -53,7 +53,7 @@ For example, for Glassfish v4.1, that is based on OSGI, deploying the Ceylon dis
 
 A web application bundle can be _just_ a JEE web application in which you add a Manifest with OSGI headers to descrbe its bundle name, its requirements, dependencies, etc ...
 
-##### htmlGreeter
+### htmlGreeter
 
 The **htmlGreeter** project is pure Ceyon project with a top-level function that takes a name, a locale code, and return a greeting in Html. It uses the `ceylon.time`, `ceylon.locale` and `ceylon.html` SDK modules.
 
@@ -63,7 +63,12 @@ The generated Ceylon archive is in :
 
 `./htmlGreeter/modules/htmlGreeter/1.0.0/htmlGreeter.car`
 
-##### ceylonInWebApplicationBundle
+###### Important note :
+
+As you can see in the `Java Build Path` project properties page, in the `Order and Export` tab, the `Ceylon Language Module`and `Ceylon Project Modules` classpath container entries have been exported (which is _not_ the case by default): so any pure Java project depending on **htmlGreeter** will itself have access to the Ceylon class definitions used by **htmlGreeter**.
+
+
+### ceylonInWebApplicationBundle
 
 The **ceylonInWebApplicationBundle** project is a Wep appliction project that you can open in Eclipse (just check that you have the web and JEE tools plugins installed).
 
