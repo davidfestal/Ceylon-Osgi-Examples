@@ -1,12 +1,6 @@
 import ceylon.html {
     ...
 }
-import java.lang {
-    JString = String
-}
-import ceylon.interop.java {
-    javaString
-}
 import ceylon.time {
     now
 }
