@@ -26,6 +26,9 @@ public class SayHelloFromCeylonServlet extends HttpServlet {
     private void callCeylon(HttpServletRequest request,
             HttpServletResponse response) throws IOException {
         String name = request.getParameter("name");
-        response.getWriter().write(htmlGreeter.sayHelloInCeylon_.sayHelloInCeylon(name, request.getLocale().toLanguageTag()));
+        ceylon.language.String ceylonName = name == null ? null : new ceylon.language.String(name);
+        String localeTag = request.getLocale().toLanguageTag();
+        ceylon.language.String ceylonLocaleTag = localeTag == null ? null : new ceylon.language.String(localeTag);
+        response.getWriter().write(htmlGreeter.sayHelloInCeylon_.sayHelloInCeylon(ceylonName, ceylonLocaleTag));
     }
 }
