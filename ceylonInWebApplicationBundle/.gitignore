@@ -1,3 +1,4 @@
 /build/
 /.settings/
 /ceylonInWebApplicationBundle.war
+/WebContent/WEB-INF/classes/
