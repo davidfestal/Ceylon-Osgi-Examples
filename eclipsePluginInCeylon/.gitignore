@@ -2,3 +2,5 @@
 /.exploded/
 /generated-source/
 /target/
+/modules/
+/.settings/
