@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="eclipsePluginInCeylon.commands.category">
+      </category>
+      <command
+            name="Sample Command"
+            categoryId="eclipsePluginInCeylon.commands.category"
+            id="eclipsePluginInCeylon.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="eclipsePluginInCeylon.commands.sampleCommand"
+            class="myMainModule.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="eclipsePluginInCeylon.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Sample Menu"
+               mnemonic="M"
+               id="eclipsePluginInCeylon.menus.sampleMenu">
+            <command
+                  commandId="eclipsePluginInCeylon.commands.sampleCommand"
+                  mnemonic="S"
+                  id="eclipsePluginInCeylon.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="eclipsePluginInCeylon.toolbars.sampleToolbar">
+            <command
+                  commandId="eclipsePluginInCeylon.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="eclipsePluginInCeylon.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

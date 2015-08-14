@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EclipsePluginInCeylon
+Bundle-SymbolicName: eclipsePluginInCeylon;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: myMainModule.Activator
+Require-Bundle:  ceylon.language;bundle-version="1.1.1";visibility:=reexport,
+ com.redhat.ceylon.dist;bundle-version="1.1.1";visibility:=reexport,
+ ceylon.collection;bundle-version="1.1.1",
+ ceylon.interop.java;bundle-version="1.1.1",
+ org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: ./modules/myMainModule/1.0.0/myMainModule-1.0.0.car,
+ .
