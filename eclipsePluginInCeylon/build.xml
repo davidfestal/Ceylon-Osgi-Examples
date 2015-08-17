@@ -112,8 +112,8 @@
 	  <string value="${module.eclipseDependencies.name}" />
 	  <filterchain>
 	    <replaceregex pattern="\." replace="/" flags="g" />
-	    <replaceregex pattern="^" replace="${basedir}/generated-source/" />
-        <replaceregex pattern="$" replace="/" />
+	    <prefixlines prefix="${basedir}/generated-source/" />
+        <suffixlines suffix="/" />
 	  </filterchain>
 	</loadresource>
 
