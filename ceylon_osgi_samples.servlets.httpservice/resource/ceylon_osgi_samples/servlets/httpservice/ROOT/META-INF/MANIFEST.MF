@@ -1,0 +1,8 @@
+Import-Package: javax.servlet,
+ javax.servlet.http,
+ org.osgi.framework,
+ org.osgi.framework.wiring,
+ org.osgi.service.http,
+ org.osgi.util.tracker
+Bundle-Activator: ceylon_osgi_samples.servlets.httpservice.Activator
+Export-Package: ceylon_osgi_samples.servlets.httpservice

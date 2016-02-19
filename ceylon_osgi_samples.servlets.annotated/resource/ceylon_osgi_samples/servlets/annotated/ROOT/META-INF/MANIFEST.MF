@@ -1,0 +1,8 @@
+Import-Package: javax.servlet,
+ javax.servlet.http,
+ javax.servlet.annotation,
+ org.osgi.framework
+Bundle-Activator: ceylon_osgi_samples.servlets.annotated.Activator
+Export-Package: ceylon_osgi_samples.servlets.annotated
+Web-ContextPath: /
+Bundle-ClassPath: .

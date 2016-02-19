@@ -1,0 +1,7 @@
+<overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
+    <module groupId="org.osgi" artifactId="osgi_R4_compendium">
+        <add module="javax.servlet" version="3.1.0"/>
+        <add module="org.osgi.core" version="4.3.1"/>
+    </module>
+    <remove groupId="org.eclipse" artifactId="osgi"/>
+</overrides>

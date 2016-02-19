@@ -1,0 +1,13 @@
+
+[compiler]
+source=source
+resource=resource
+osgiprovidedbundles=javax.servlet,org.osgi:osgi_R4_compendium,org.osgi.core
+
+[defaults]
+encoding=UTF-8
+overrides=overrides.xml
+
+
+[repositories]
+remote=aether

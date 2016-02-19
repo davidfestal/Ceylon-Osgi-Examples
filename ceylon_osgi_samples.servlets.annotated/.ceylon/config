@@ -1,0 +1,8 @@
+
+[compiler]
+source=source
+resource=resource
+osgiprovidedbundles=javax.servlet,org.osgi.core
+
+[defaults]
+encoding=UTF-8
