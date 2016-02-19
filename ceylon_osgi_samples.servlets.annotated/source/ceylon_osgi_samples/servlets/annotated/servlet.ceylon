@@ -32,8 +32,8 @@ import javax.servlet.http {
 }
 
 webServlet {
-    name = "helloWithAnnotation";
-    urlPatterns = {"/hello"};
+    name = "ceylonServletWithAnnotation";
+    urlPatterns = {"/ceylon-servlets/annotated"};
 }
 shared class SimpleServlet()
         extends HttpServlet() {

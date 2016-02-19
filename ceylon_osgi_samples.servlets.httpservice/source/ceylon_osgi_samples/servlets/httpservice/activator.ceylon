@@ -24,8 +24,8 @@ class HttpServiceTracker(BundleContext context)
             return null;
         }
         try {
-            print("Registering servlet at /simple");
-            httpService.registerServlet("/simple", SimpleServlet(), null, null);
+            print("Registering servlet at /ceylon-servlets/httpservice");
+            httpService.registerServlet("/ceylon-servlets/httpservice", SimpleServlet(), null, null);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -35,8 +35,8 @@ class HttpServiceTracker(BundleContext context)
     
     shared actual void removedService(ServiceReference<out Object> reference, Object service) {
         assert(is HttpService httpService = service);
-        print("Unregistering /simple");
-        httpService.unregister("/simple");
+        print("Unregistering /ceylon-servlets/httpservice");
+        httpService.unregister("/ceylon-servlets/httpservice");
         super.removedService(reference, service);
     }
     
