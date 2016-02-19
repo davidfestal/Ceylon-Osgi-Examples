@@ -12,36 +12,57 @@ In order to be able to resolve and start Ceylon module archives (`.car` files) i
 
 These bundles are available in a dedicated place on the Ceylon language web site :
 
-- as OBR bundle repositories (be careful - they require the `osgi.ee` capability, so you might encounter [this bug](https://issues.apache.org/jira/browse/FELIX-4640)) : 
-  
-  http://downloads.ceylon-lang.org/osgi/1.1.0/distrib/repository.
+- as OBR bundle repositories:
+    - Old-style OBR syntax (still used by Apache Felix):
+        
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/repository.xml
 
-  http://downloads.ceylon-lang.org/osgi/1.1.0/sdk/repository.xml
+        https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/repository.xml
+
+    - New standard R5 OBR syntax:
+        
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/index.xml
+
+        https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/index.xml
 
 - as P2 repositories for Eclipse development :
   
-  http://downloads.ceylon-lang.org/osgi/1.1.0/distrib
-
-  http://downloads.ceylon-lang.org/osgi/1.1.0/sdk
+  https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/
+  
+  https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/
 
 - as Zip archives for direct deployment inside containers :
   
-  http://downloads.ceylon-lang.org/osgi/1.1.0/distrib/ceylon.distribution.osgi.bundles-1.1.0.zip
+  https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/ceylon.distribution.osgi.bundles-1.2.1.zip
 
-  http://downloads.ceylon-lang.org/osgi/1.1.0/sdk/ceylon.sdk.osgi.bundles-1.1.0.zip
+  https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/ceylon.sdk.osgi.bundles-1.2.1.zip
 
-#### Installing the Ceylon Distribution and SDK for OSGI
+- as Zip archives for direct deployment inside containers :
+  
+  https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/ceylon.distribution.osgi.bundles-1.2.1.zip
 
-For example, for Glassfish v4.1, that is based on OSGI, deploying the Ceylon distribution and SDK to test these examples is **_very_** simple :
+  https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/ceylon.sdk.osgi.bundles-1.2.1.zip
 
-- let's assume we start with a fresh installation of Glassfish v4.1
+- as Apache Karaf features (see http://karaf.apache.org/manual/latest/users-guide/provisioning.html):
+    - `ceylon.distribution.runtime`, available in the following feature repository
+    
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml
+    
+    - `ceylon.sdk`, available in the following feature repository
+      
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml
 
-- just unzip the 2 zip archives mentioned earlier into :
+
+#### Installing the Ceylon Distribution and SDK in an OSGI container
+
+##### Glassfish v4.1:
+
+- Let's assume we start with a fresh installation of Glassfish v4.1
+
+- Unzip the 2 zip archives mentioned earlier ([distribution](https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/ceylon.distribution.osgi.bundles-1.2.1.zip) and [sdk](https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/ceylon.sdk.osgi.bundles-1.2.1.zip)) into :
 
   `../glassfish4/glassfish/domains/domain1/autodeploy/bundles`
   
-  48 bundles should have been added in the `bundles` directory.
-
 - start the glassfish server :
 
   `../glassfish4/bin/asadmin start-domain`
@@ -50,58 +71,51 @@ For example, for Glassfish v4.1, that is based on OSGI, deploying the Ceylon dis
 
   `../glassfish4/glassfish/domains/domain1/logs`
 
+##### Apache Felix 5.4.0:
 
-## Ceylon in a Web Application Bundle
+- Let's assume we start with a fresh installation of Apache Felix v5.4.0 (`org.apache.felix.main.distribution-5.4.0.zip`)
 
-A web application bundle can be _just_ a JEE web application in which you add a Manifest with OSGI headers to descrbe its bundle name, its requirements, dependencies, etc ...
+- In the `conf/config.properties` file of the Felix installation directory, find the `obr.repository.url` property.
 
-### htmlGreeter
+- Uncomment this property if necessary
 
-The **htmlGreeter** project is pure Ceyon project with a top-level function that takes a name, a locale code, and return a greeting in Html. It uses the `ceylon.time`, `ceylon.locale` and `ceylon.html` SDK modules.
+- Add the 2 Ceylon following OBR urls at the end of this property (space-separated):
+ 
+        https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/repository.xml https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/repository.xml
 
-Simply open it in Eclipse with the [1.1.0 version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.1/ide/install/)
+- From the Felix installationdirectory, Start Felix with the following command:
 
-The generated Ceylon archive is in :
+        java -jar bin/felix.jar
 
-`./htmlGreeter/modules/htmlGreeter/1.0.0/htmlGreeter.car`
+- From the Felix Gogo shell, deploy the Ceylon Distribution with:
+      
+        obr:deploy "Ceylon Distribution Bundle"
 
-###### Important note :
+- Deploy any SDK module you need with the following command:
+      
+        obr:deploy ceylon.file
 
-As you can see in the `Java Build Path` project properties page, in the `Order and Export` tab, the `Ceylon Language Module`and `Ceylon Project Modules` classpath container entries have been exported (which is _not_ the case by default): so any pure Java project depending on **htmlGreeter** will itself have access to the Ceylon class definitions used by **htmlGreeter**.
+##### Apache Karaf 4.0.4 (Karaf is a part of JBoss Fuse):
 
+- Let's assume we start with a fresh installation of Apache Karaf v4.0.4 (`apache-karaf-4.0.4.zip`)
 
-### ceylonInWebApplicationBundle
+- In the karaf installation directory, start Karaf with the following command:
 
-The **ceylonInWebApplicationBundle** project is a Wep appliction project that you can open in Eclipse (just check that you have the web and JEE tools plugins installed).
+        ./bin/karaf
 
-Since it depends on **htmlGreeter**, you should open both in the same workspace. You might still see an error if the generated module archive of **htmlGreeter** is not found : just clean build **htmlGreeter** and it will disappear.
+- In the karaf shell, add the Ceylon distribution feature repository with the following command:
 
-To generate the web application archive, just use the `Export -> Web -> War File` eclipse command.
+        feature:repo-add https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml
 
-##### Installation
+- In the karaf shell, add the Ceylon SDK feature repository with the following command:
 
-Now deploy both archives with the Glassfish command line :
+        feature:repo-add https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/karaf-features.xml
 
-```
-~/glassfish4/bin$ ./asadmin deploy --type osgi ~/git/Ceylon-Osgi-Examples/htmlGreeter/modules/htmlGreeter/1.0.0/htmlGreeter-1.0.0.car
+- In the karaf shell, install the Ceylon distribution feature with the following command:
 
-Application deployed with name htmlGreeter-1.0.0.
-Command deploy executed successfully.
+        feature:install ceylon.distribution.runtime
 
-~/glassfish4/bin$ ./asadmin deploy --type war ~/git/Ceylon-Osgi-Examples/ceylonInWebApplicationBundle/ceylonInWebApplicationBundle.war 
+- In the karaf shell, install the Ceylon SDK feature with the following command:
 
-Application deployed with name ceylonInWebApplicationBundle.
-Command deploy executed successfully.
-
-```
-
-##### Running the web application
-
-Point your browser to :
-
-
-http://localhost:8080/ceylonInWebApplicationBundle/SayHelloFromCeylonServlet?name=You
-
-
-And you should get a web page greeting *You* with the current time formatted according to the browser locale.
+        feature:install ceylon.sdk
 
