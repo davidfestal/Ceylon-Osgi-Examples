@@ -6,7 +6,7 @@ A web application bundle can be _just_ a JEE web application in which you add a 
 
 The **htmlGreeter** project is pure Ceyon project with a top-level function that takes a name, a locale code, and return a greeting in Html. It uses the `ceylon.time`, `ceylon.locale` and `ceylon.html` SDK modules.
 
-Simply open it in Eclipse with the [1.1.0 version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.1/ide/install/)
+Simply open it in Eclipse with the [1.2.1 version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.2/ide/install/)
 
 The generated Ceylon archive is in :
 
