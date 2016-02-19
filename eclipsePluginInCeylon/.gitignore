@@ -3,3 +3,5 @@
 /eclipse-sources-repo/
 /modules/
 /target/
+/bin/
+/.settings/
