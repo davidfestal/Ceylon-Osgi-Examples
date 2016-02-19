@@ -1,1 +1,5 @@
 /.exploded/
+/generated-source/
+/eclipse-sources-repo/
+/modules/
+/target/
