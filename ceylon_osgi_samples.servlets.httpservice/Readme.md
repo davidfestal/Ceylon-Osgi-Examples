@@ -35,3 +35,11 @@ The generated Ceylon archive is produced here :
 - The servlet should answer at the following URL:
         
         http://localhost:8181/ceylon-servlets/httpservice
+
+- In the Karaf command line, if you type:
+
+        http:list
+        
+  our servlet should be listed in the returned list of registered servlets:
+ 
+        `163 | SimpleServlet   | ServletModel-26     | Deployed  | /ceylon-servlets/httpservice | [/ceylon-servlets/httpservice/*]`
