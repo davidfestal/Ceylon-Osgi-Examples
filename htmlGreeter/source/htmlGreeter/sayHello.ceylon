@@ -7,6 +7,9 @@ import ceylon.time {
 import ceylon.locale {
     locale
 }
+import ceylon.time.timezone {
+    timeZone
+}
 
 shared String sayHelloInCeylon(String? name, String? browserLocale) {
     return Html {
@@ -22,7 +25,7 @@ shared String sayHelloInCeylon(String? name, String? browserLocale) {
                },
                Br(),
                H2 {
-                   text = "It's `` locale(browserLocale?.string else "en_US")?.formats?.longFormatTime(now().time()) else "" ``";
+                   text = "It's `` locale(browserLocale?.string else "en_US")?.formats?.longFormatTime(now().time(), timeZone.system) else "" ``";
                }
            }
         };
