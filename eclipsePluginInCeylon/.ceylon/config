@@ -18,3 +18,6 @@ lookup=flat:./target/repo/plugins
 lookup=./../../../ceylon-dist/osgi/embeddedRepository/repo
 lookup=flat:./lib/sources
 lookup=flat:./eclipse-sources-repo/plugins
+
+[formattool]
+profile=myProfile

@@ -24,6 +24,7 @@ shared class SampleHandler() extends AbstractHandler() {
         print(map["a"]);
         IWorkbenchWindow window = getActiveWorkbenchWindowChecked(event);
         MessageDialog.openInformation(window.shell, *(let (list=ArrayList { "EclipsePluginInCeylon", "Hello, Eclipse world" }) [list.first, list.rest.first]));
+        Integer a=0;
         return null;
     }
 }

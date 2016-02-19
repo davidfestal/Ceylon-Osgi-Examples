@@ -23,11 +23,12 @@
     <remove module="org.eclipse.e4.ui.css.swt"/>
     <remove module="org.eclipse.e4.ui.css.swt.theme"/>
     <remove module="org.eclipse.e4.ui.di"/>
-    <remove module="org.eclipse.e4.ui.model.workbench"/>
+	<remove module="org.eclipse.e4.ui.model.workbench"/>
     <remove module="org.eclipse.e4.ui.workbench"/>
     <remove module="org.eclipse.e4.ui.workbench.addons.swt"/>
     <remove module="org.eclipse.e4.ui.workbench.swt"/>
     <remove module="org.eclipse.e4.ui.workbench3"/>
+    <remove module="org.eclipse.e4.ui.services"/>
     <remove module="org.eclipse.emf.ecore"/>
     <remove module="org.eclipse.equinox.p2.engine"/>
     <remove module="org.eclipse.equinox.p2.metadata"/>
@@ -36,6 +37,11 @@
     <remove module="org.eclipse.jface.databinding"/>
     <remove module="org.eclipse.team.ui"/>
     <remove module="org.eclipse.ui.forms"/>
+    <remove module="org.eclipse.jdt.junit.runtime"/>
+    <remove module="org.eclipse.equinox.frameworkadmin"/>
+    <remove module="org.eclipse.equinox.simpleconfigurator.manipulator"/>
+    <remove module="org.eclipse.pde.core"/>
+    <remove module="org.eclipse.pde.build"/>
 
     <module module="org.eclipse.ui">
         <add module="org.eclipse.ui.ide" version="${org.eclipse.ui.ide.version.override}" shared="true"/>
@@ -52,6 +58,7 @@
         <share module="org.eclipse.ui.workbench"/>
     </module>
     <module module="org.eclipse.ui.editors">
+        <add module="org.eclipse.jface" version="current" shared="true"/>
         <add module="org.eclipse.ui.workbench.texteditor" version="${org.eclipse.ui.workbench.texteditor.version.override}" shared="true"/>
     </module>
     <module module="org.eclipse.text">
@@ -64,8 +71,17 @@
     <module module="org.eclipse.core.resources">
         <share module="org.eclipse.core.runtime"/>
     </module>
+    <module module="org.eclipse.jdt.core">
+        <add module="org.eclipse.core.contenttype" version="${org.eclipse.ui.workbench.texteditor.version.override}"/>
+    </module>
 
     <module module="org.eclipse.swt">
         <add module="org.eclipse.swt.gtk.linux.x86_64" version="${org.eclipse.swt.gtk.linux.x86_64.version.override}" shared="true"/>
+    </module>
+    <module module="org.eclipse.jface.text">
+        <share module="org.eclipse.jface"/>
+    </module>
+    <module module="org.eclipse.jface">
+        <add module="org.eclipse.core.runtime" version="current" shared="true"/>
     </module>
 </overrides>
