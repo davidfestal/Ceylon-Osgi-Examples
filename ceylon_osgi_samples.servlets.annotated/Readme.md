@@ -10,11 +10,14 @@ This Ceylon module is also an OSGI bundle that provides:
 
 _Note that the web.xml file is void since the servlet is registered with a 3.0 annotation_
 
+_Note also that there isn't any explicit OSGI dependency in the project_
+
+
 ### How to build
 
 This is a pure Ceylon project that produces a single Ceylon module archive
 
-Simply open it in Eclipse with the [1.2.1 version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.2/ide/install/)
+Simply open it in Eclipse with the [`1.3.0` version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.3/ide/install/)
 
 The generated Ceylon archive is produced here :
 

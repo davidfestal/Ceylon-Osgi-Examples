@@ -1,6 +1,6 @@
 import ceylon.html {
     Html,
-    html5,
+    Doctype { html5 },
     H2,
     Body,
     H1,
@@ -10,7 +10,8 @@ import ceylon.html {
     Li,
     Pre,
     P,
-    A
+    A,
+    Title
 }
 import ceylon.locale {
     locale
@@ -38,16 +39,20 @@ webServlet {
 shared class SimpleServlet()
         extends HttpServlet() {
     shared actual void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        Object o = [req];
+        if (is {HttpServletRequest*} o) {
+            print(`module`.name);
+        }
         resp.contentType = "text/html";
         resp.writer.write(Html {
             doctype = html5;
-            head = Head {
-                title = "Ceylon-OSGI Examples - Servlet 3.0 annotations";
-            };
-            body = Body {
+            Head {
+                Title { "Ceylon-OSGI Examples - Servlet 3.0 annotations" }
+            },
+            Body {
                 Div {
                     style = "text-align: center";
-                    H1("Hello `` req.getParameter("name") else "Anybody" `` from Ceylon code"),
+                    H1 { "Hello `` req.getParameter("name") else "Anybody" `` from Ceylon code" },
                     H2 {
                         "It's time to discover Ceylon-OSGI interoperability : `` 
                         locale(req.locale.toLanguageTag() else "en_US")
@@ -62,11 +67,11 @@ shared class SimpleServlet()
                     Ul {
                         Li {
                             "a Web application whose sources are located in ",
-                            Pre("resource/ceylon_osgi_samples/servlets/annotated/ROOT/WEB-INF")
+                            Pre { "resource/ceylon_osgi_samples/servlets/annotated/ROOT/WEB-INF" }
                         },
                         Li {
                             "a servlet registered automatically through the Servlet 3.0 ",
-                            Pre("webServlet"),
+                            Pre { "webServlet" },
                             " annotation."
                         }
                     },
@@ -76,17 +81,17 @@ shared class SimpleServlet()
                     "This example runs in Apache Karaf with the following features:",
                     Ul {
                         Li {
-                            A("ceylon.distribution.runtime", "https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml")
+                            A { href="ceylon.distribution.runtime"; "https://downloads.ceylon-lang.org/osgi/distribution/1.2.1/karaf-features.xml" }
                         },
                         Li { 
-                            A("ceylon.sdk", "https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/karaf-features.xml")
+                            A { href="ceylon.sdk"; "https://downloads.ceylon-lang.org/osgi/sdk/1.2.1/karaf-features.xml" }
                         },
-                        Li("http"),
-                        Li("war"),
-                        Li("pax-war")
+                        Li { "http" },
+                        Li { "war" },
+                        Li { "pax-war" }
                     }
                 }
-            };
+            }
         }.string);
     }
 }
