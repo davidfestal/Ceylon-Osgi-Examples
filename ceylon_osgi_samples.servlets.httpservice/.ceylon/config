@@ -8,6 +8,5 @@ osgiprovidedbundles=javax.servlet,org.osgi:osgi_R4_compendium,org.osgi.core
 encoding=UTF-8
 overrides=overrides.xml
 
-
 [repositories]
 remote=aether

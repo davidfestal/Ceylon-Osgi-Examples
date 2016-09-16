@@ -2,11 +2,13 @@
 
 This Ceylon module is also an OSGI bundle that provides a simple servlet, registered at startup in the standard OSGI HTTP service.
 
+It also shows how to explicitly define a bundle activator.
+
 ### How to build
 
 This is a pure Ceylon project that produces a single Ceylon module archive
 
-Simply open it in Eclipse with the [1.2.1 version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.2/ide/install/)
+Simply open it in Eclipse with the [1.3 version of the Ceylon IDE](http://ceylon-lang.org/documentation/1.3/ide/install/)
 
 The generated Ceylon archive is produced here :
 

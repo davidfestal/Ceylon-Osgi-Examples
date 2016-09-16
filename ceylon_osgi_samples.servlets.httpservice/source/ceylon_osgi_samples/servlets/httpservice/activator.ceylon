@@ -52,7 +52,7 @@ shared class Activator() extends DefaultActivator() {
     }
     shared actual void stop(BundleContext context) {
         super.stop(context);
-        print("Stopping server in Ceylon");
+        print("Stopping OSGI server in Ceylon");
         serviceTracker?.close();
         serviceTracker = null;
     }
