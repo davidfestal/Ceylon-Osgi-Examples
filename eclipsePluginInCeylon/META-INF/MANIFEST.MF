@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EclipsePluginInCeylon
 Bundle-SymbolicName: eclipsePluginInCeylon;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Activator: myMainModule.Activator
-Require-Bundle:  ceylon.language;bundle-version="1.3.0";visibility:=reexport,
- com.redhat.ceylon.dist;bundle-version="1.3.0";visibility:=reexport,
- ceylon.collection;bundle-version="1.3.0",
- ceylon.interop.java;bundle-version="1.3.0",
+Require-Bundle:  ceylon.language;bundle-version="1.3.1";visibility:=reexport,
+ com.redhat.ceylon.dist;bundle-version="1.3.1";visibility:=reexport,
+ ceylon.collection;bundle-version="1.3.1",
+ ceylon.interop.java;bundle-version="1.3.1",
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.ui,
