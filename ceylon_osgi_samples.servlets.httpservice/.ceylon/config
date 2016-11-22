@@ -4,6 +4,9 @@ source=source
 resource=resource
 osgiprovidedbundles=javax.servlet,org.osgi:osgi_R4_compendium,org.osgi.core
 
+[compiler.jvm]
+target=7
+
 [defaults]
 encoding=UTF-8
 overrides=overrides.xml

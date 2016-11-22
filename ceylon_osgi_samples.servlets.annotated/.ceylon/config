@@ -4,5 +4,8 @@ source=source
 resource=resource
 osgiprovidedbundles=javax.servlet
 
+[compiler.jvm]
+target=7
+
 [defaults]
 encoding=UTF-8
