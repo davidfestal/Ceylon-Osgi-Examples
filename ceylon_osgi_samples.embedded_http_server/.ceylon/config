@@ -1,0 +1,11 @@
+
+[compiler]
+source=source
+resource=resource
+osgiprovidedbundles=org.osgi.core
+
+[compiler.jvm]
+target=7
+
+[defaults]
+encoding=UTF-8

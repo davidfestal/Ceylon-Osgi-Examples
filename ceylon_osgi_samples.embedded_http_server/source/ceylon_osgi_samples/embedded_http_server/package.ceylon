@@ -1,0 +1,1 @@
+shared package ceylon_osgi_samples.embedded_http_server;

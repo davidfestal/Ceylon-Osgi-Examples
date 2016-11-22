@@ -1,0 +1,1 @@
+Bundle-Activator: ceylon_osgi_samples.embedded_http_server.Activator
